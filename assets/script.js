@@ -50,8 +50,8 @@ $(document).ready(function() { // this is used to let the HTML load before calli
         for(var i = 0; i < timeArray.length; i++){
             const saveButton = $("#savebox" + timeArray[i].key);
             saveButton.on("click", function(){
-                const textBoxStorage = $("#textbox" + this[i].key)
-                localStorage.setItem("input" + timeArray[i].key, textBoxStorage.value);
+                const textBoxStorage = $("#textbox" + timeArray[i]);
+                localStorage.setItem("input" + timeArray[i], textBoxStorage.value);
             })
         }
     }
