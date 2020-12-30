@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  
 }
 
 textarea{
@@ -17,10 +18,11 @@ textarea{
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: rgb(180, 228, 180);
+  color: rgb(236, 127, 25);
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 15px dashed rgb(252, 248, 24);
+ 
 }
 
 .description{
@@ -29,6 +31,9 @@ textarea{
 
 .time-block{
   text-align: center;
+  font-size: 24px;
+  color:rgb(24, 35, 136);
+  font-weight: bold;
   border-radius: 15px;
 }
 
@@ -42,8 +47,9 @@ textarea{
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #eecade;
+  color: #175557;
+  font-weight: bold;
   border: 3px solid rgb(104, 5, 5);
   border-top: 3px solid rgb(104, 5, 5);
 }
@@ -64,7 +70,7 @@ textarea{
 }
 
 .saveBtn {
-  border-left: 1px solid black;
+  border-left: 3px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
