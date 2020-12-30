@@ -8,8 +8,10 @@ textarea{
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
-  border-left: 1px solid black;
+  color: #0d7423;
+  font-style: bold;
+  font-size: 30px;
+  border-left: 3px solid black;
   padding: 10px;
 }
 
@@ -33,13 +35,15 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border: 3px solid rgb(104, 5, 5);
+  border-top: 3px solid rgb(104, 5, 5);
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border: 3px solid rgb(104, 5, 5);
+  border-top: 3px solid rgb(104, 5, 5);
 }
 
 .past {
