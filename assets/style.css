@@ -8,7 +8,7 @@ textarea{
   background: transparent;
   border: none;
   resize: none;
-  color: #0d7423;
+  color: #6100cf;
   font-style: bold;
   font-size: 30px;
   border-left: 3px solid black;
@@ -35,6 +35,8 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   border: 3px solid rgb(104, 5, 5);
   border-top: 3px solid rgb(104, 5, 5);
 }

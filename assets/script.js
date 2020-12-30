@@ -30,6 +30,9 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             const descriptionColumn = $("<textarea>");
             descriptionColumn.attr("class", "col-7 input");
             row.append(descriptionColumn)
+            const saveButton = $("<button>");
+            saveButton.attr("class", "col-2 saveBtn");
+            row.append(saveButton);
 
         }
 
