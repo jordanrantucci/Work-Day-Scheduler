@@ -12,7 +12,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
     setInterval(timeDisplay, 1000) // set interval to 1000 for 1,000 ms per second
 
     
-    let timeArray = [
+    const timeArray = [
         {time: "9:00 AM", key:9},
         {time: "10:00 AM", key:10},
         {time: "11:00 AM", key:11},
@@ -31,6 +31,31 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             localStorage.setItem(time, input); // this will store the key and value
         })
     }
+    //this function is to call the local storage on page reload.
+    function getLocalStorage() {
+        const numberArray = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+        const varArray = ["hour9", "hour10", "hour11", "hour12", "hour13", "hour14", "hour15", "hour16", "hour17"]
+        for (var i = 0; i < numberArray.length; i++) {
+            varArray[i] = localStorage.getItem("Hour" + numberArray[i])
+            $("#textbox" + numberArray[i]).text(varArray[i]);
+        }
+    }
+    function clearButton() {
+        const clearButton = $("<button>")
+        clearButton.attr("class", "col-12 clearBtn")
+        clearButton.text("Clear Schedule")
+        $(".container").append(clearButton)
+    }
+
+    function clearButtonOnClick() {
+        $(".clearBtn").on("click", function () {
+            localStorage.clear();
+        for(var i = 0; i < 9; i++) {
+            $("#textbox" + timeArray[i].key).empty();
+        }
+        })
+    }
+
 
     function containerDisplay () { // this function is to create divs in the container this will create the rows needed
         const container = $(".container")
@@ -65,7 +90,10 @@ $(document).ready(function() { // this is used to let the HTML load before calli
     
 
     containerDisplay();
+    clearButton();
     saveButton();
-
+    getLocalStorage();
+    clearButtonOnClick();
+   
 
 });

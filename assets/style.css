@@ -46,6 +46,22 @@ textarea{
   border-top: 3px solid rgb(104, 5, 5);
 }
 
+.clearBtn {
+  height: 60px;
+  border:3px solid rgb(104, 5, 5);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background: aqua;
+  color: tomato;
+  font-weight: bold;
+  font-size: 28px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .hour {
   background-color: #eecade;
   color: #175557;
