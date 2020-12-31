@@ -11,9 +11,26 @@ $(document).ready(function() { // this is used to let the HTML load before calli
     timeDisplay();
     setInterval(timeDisplay, 1000) // set interval to 1000 for 1,000 ms per second
 
-    const timeArray = [{time: "9:00 AM", key:9},{time: "10:00 AM", key:10}, {time: "11:00 AM", key:11},
-    {time: "12:00 PM", key:12}, {time: "1:00 PM", key:13}, {time: "2:00 PM", key:14}, {time: "3:00 PM", key:15},
-    {time: "4:00 PM", key:16}, {time: "5:00 PM", key:17}] //this is an array of object that will have to be appended to the planner container
+    
+    let timeArray = [
+        {time: "9:00 AM", key:9},
+        {time: "10:00 AM", key:10},
+        {time: "11:00 AM", key:11},
+        {time: "12:00 PM", key:12},
+        {time: "1:00 PM", key:13},
+        {time: "2:00 PM", key:14},
+        {time: "3:00 PM", key:15},
+        {time: "4:00 PM", key:16},
+        {time: "5:00 PM", key:17}
+    ]; //this is an array of object that will have to be appended to the planner container
+
+    function saveButton(){
+        $(".saveBtn").on("click", function(){
+            const time = $(this).parent().attr("id"); //this is the key
+            const input = $(this).siblings(".input").val(); //this is the value
+            localStorage.setItem(time, input); // this will store the key and value
+        })
+    }
 
     function containerDisplay () { // this function is to create divs in the container this will create the rows needed
         const container = $(".container")
@@ -21,6 +38,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             //this section creates the time column with styling
             const row = $("<div>");
             row.attr("class", "row hour");
+            row.attr("id", "Hour"+timeArray[i].key)
             container.append(row);
             const timeColumn = $("<div>");
             timeColumn.attr("class", "col-3"); // this sets the column width
@@ -44,19 +62,10 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             row.append(saveButton);
         }
     }
+    
+
     containerDisplay();
-
-    function saveButton() {
-        for(var i = 0; i < timeArray.length; i++){
-            const saveButton = $("#savebox" + timeArray[i].key);
-            saveButton.on("click", function(){
-                const textBoxStorage = $("#textbox" + timeArray[i]);
-                localStorage.setItem("input" + timeArray[i], textBoxStorage.value);
-            })
-        }
-    }
     saveButton();
-
 
 
 });
