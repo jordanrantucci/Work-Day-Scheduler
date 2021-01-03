@@ -10,10 +10,9 @@ textarea{
   border: none;
   resize: none;
   color: #6100cf;
-  font-style: bold;
+  font-weight: bold;
   font-size: 30px;
   border-left: 3px solid black;
-  padding: 10px;
 }
 
 .jumbotron {
@@ -72,17 +71,17 @@ textarea{
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: #6100cf;
 }
 
 .present {
   background-color: #ff6961;
-  color: white;
+  color: #6100cf;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: #6100cf;
 }
 
 .saveBtn {
@@ -93,7 +92,37 @@ textarea{
   color: white;
 }
 
+.col-3 {
+  font-size: 30px;
+}
+
+.display-3 {
+  font-size: 4.5rem;
+}
+
+#floppydisc {
+  height: 65px;
+}
+
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+@media only screen and (max-width: 550px) {
+  textarea {
+    font-size: 20px;
+  }
+  .col-3 {
+    font-size: 22px;
+  }
+   #floppydisc {
+    height:30px;
+  }
+
+  @media only screen and (max-width: 360px) {
+  .display-3 {
+    font-size: 28px;
+  }
+}
 }

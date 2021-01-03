@@ -68,7 +68,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             const timeColumn = $("<div>");
             timeColumn.attr("class", "col-3"); // this sets the column width
             timeColumn.text(timeArray[i].time);
-            timeColumn.css("font-size", "30px");
+            // timeColumn.css("font-size", "30px");
             timeColumn.css("text-align", "center");
             row.append(timeColumn);
             // this section creates the event description column
@@ -82,17 +82,35 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             saveButton.attr("id", "savebox" + timeArray[i].key)
             const image = $("<img>")
             image.attr("src", "./assets/save.jpg")//this adds a save image
-            image.css("height", "65px")
+            image.attr("id", "floppydisc")
             saveButton.append(image)
             row.append(saveButton);
         }
     }
+
+    function timeChange () {
+        const date = new Date();
+        const hour = parseInt(date.getHours())
+        for (var i = 0; i < 9; i++){
+            if (hour === timeArray[i].key) {
+                $("#textbox" + timeArray[i].key).attr("class", "col-7 input present")
+            } else if (timeArray[i].key < hour) {
+                $("#textbox" + timeArray[i].key).attr("class", "col-7 input past")
+            } else if (timeArray[i].key > hour) {
+                $("#textbox" + timeArray[i].key).attr("class", "col-7 input future")
+            }
+        }
+    }
+
+    
     
 
     containerDisplay();
     clearButton();
     saveButton();
     getLocalStorage();
+    setInterval(timeChange(), 1000);
+    timeChange();
     clearButtonOnClick();
    
 
