@@ -11,7 +11,7 @@ The purpose of this homework assignment is to test the students knowledge of wor
 
 
 
-Deployed application link: (https://jordanrantucci.github.io/CWork-Day-Scheduler/)
+Deployed application link: (https://jordanrantucci.github.io/Work-Day-Scheduler/)
 
 
 Screenshot of deployed application:
