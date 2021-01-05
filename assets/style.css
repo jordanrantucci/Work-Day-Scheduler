@@ -70,7 +70,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #979696;
   color: #6100cf;
 }
 
@@ -92,15 +92,16 @@ textarea{
   color: white;
 }
 
-.col-3 {
+.col-3 { /* this creates CSS for the time column*/
   font-size: 30px;
+  text-align: center;
 }
 
-.display-3 {
+.display-3 {  /*this creates a CSS link for the h1 and allows it to be changed in the media query */
   font-size: 4.5rem;
 }
 
-#floppydisc {
+#floppydisc {  /* This creates size of image and links it to CSS */
   height: 65px;
 }
 
@@ -109,7 +110,7 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 550px) { /*the media query is make page responsive at less than 550 px*/ 
   textarea {
     font-size: 20px;
   }
@@ -120,7 +121,7 @@ textarea{
     height:30px;
   }
 
-  @media only screen and (max-width: 360px) {
+  @media only screen and (max-width: 360px) { /* This is to make the page responsive at less than 360 px */
   .display-3 {
     font-size: 28px;
   }

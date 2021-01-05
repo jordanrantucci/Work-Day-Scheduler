@@ -24,7 +24,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
         {time: "5:00 PM", key:17}
     ]; //this is an array of object that will have to be appended to the planner container
 
-    function saveButton(){
+    function saveButton(){ //This is the function for the save button to store the text locally
         $(".saveBtn").on("click", function(){
             const time = $(this).parent().attr("id"); //this is the key
             const input = $(this).siblings(".input").val(); //this is the value
@@ -35,41 +35,30 @@ $(document).ready(function() { // this is used to let the HTML load before calli
     function getLocalStorage() {
         const numberArray = [9, 10, 11, 12, 13, 14, 15, 16, 17]
         const varArray = ["hour9", "hour10", "hour11", "hour12", "hour13", "hour14", "hour15", "hour16", "hour17"]
-        for (var i = 0; i < numberArray.length; i++) {
-            varArray[i] = localStorage.getItem("Hour" + numberArray[i])
-            $("#textbox" + numberArray[i]).text(varArray[i]);
+        for (var i = 0; i < numberArray.length; i++) { //the for loop runs through the length of the numbers array
+            varArray[i] = localStorage.getItem("Hour" + numberArray[i]) //and is getting the hour and number array at i
+            $("#textbox" + numberArray[i]).text(varArray[i]); // allowing for the text to be displayed in the textbox 
         }
     }
-    function clearButton() {
-        const clearButton = $("<button>")
-        clearButton.attr("class", "col-12 clearBtn")
-        clearButton.text("Clear Schedule")
-        $(".container").append(clearButton)
-    }
-
-    function clearButtonOnClick() {
-        $(".clearBtn").on("click", function () {
-            localStorage.clear();
-        for(var i = 0; i < 9; i++) {
-            $("#textbox" + timeArray[i].key).empty();
-        }
-        })
+    function clearButton() { // this fuction creates the clear button 
+        const clearButton = $("<button>") // this uses JQuery to generate a button
+        clearButton.attr("class", "col-12 clearBtn") // this adds the class and matches the CSS name
+        clearButton.text("Clear Schedule") // this generates the text inside the clear button
+        $(".container").append(clearButton) //this appends the clear button to the page
     }
 
 
     function containerDisplay () { // this function is to create divs in the container this will create the rows needed
         const container = $(".container")
-        for (var i = 0; i < timeArray.length; i++){
+        for (var i = 0; i < timeArray.length; i++){ //the for loop will run through the time array length and create these elements in the container 
             //this section creates the time column with styling
-            const row = $("<div>");
-            row.attr("class", "row hour");
-            row.attr("id", "Hour"+timeArray[i].key)
-            container.append(row);
+            const row = $("<div>"); //jQuery to create the div element
+            row.attr("class", "row hour"); //the attr method created attributes 
+            row.attr("id", "Hour"+timeArray[i].key) //the id and the hour plus time array and setting the intiger
+            container.append(row); //appends the container
             const timeColumn = $("<div>");
             timeColumn.attr("class", "col-3"); // this sets the column width
-            timeColumn.text(timeArray[i].time);
-            // timeColumn.css("font-size", "30px");
-            timeColumn.css("text-align", "center");
+            timeColumn.text(timeArray[i].time); //the text method sets or returns the text content of the selected elements 
             row.append(timeColumn);
             // this section creates the event description column
             const descriptionColumn = $("<textarea>");
@@ -82,7 +71,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             saveButton.attr("id", "savebox" + timeArray[i].key)
             const image = $("<img>")
             image.attr("src", "./assets/save.jpg")//this adds a save image
-            image.attr("id", "floppydisc")
+            image.attr("id", "floppydisc") //this creates the id that is needed for the image to link CSS
             saveButton.append(image)
             row.append(saveButton);
         }
@@ -102,16 +91,24 @@ $(document).ready(function() { // this is used to let the HTML load before calli
         }
     }
 
-    
-    
+    function clearButtonOnClick() {
+        $(".clearBtn").on("click", function () {
+            if (confirm("Are you sure you want to clear all?")) {
+                const numberArray = [9, 10, 11, 12, 13, 14, 15, 16, 17] 
+                for (var i = 0; i < numberArray.length; i++) {
+                    localStorage.clear("Hour" + numberArray[i])
+                    $("#textbox" + numberArray[i]).val(' ')
+                }
+            }  
+        })
+    }
 
     containerDisplay();
-    clearButton();
     saveButton();
     getLocalStorage();
-    setInterval(timeChange(), 1000);
+    setInterval(timeChange, 1000);
     timeChange();
+    clearButton();
     clearButtonOnClick();
-   
 
 });
