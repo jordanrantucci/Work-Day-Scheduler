@@ -11,7 +11,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
     timeDisplay();
     setInterval(timeDisplay, 1000) // set interval to 1000 for 1,000 ms per second
 
-    
+    // time array of objects needed to create the schedule container
     const timeArray = [
         {time: "9:00 AM", key:9},
         {time: "10:00 AM", key:10},
@@ -76,13 +76,13 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             row.append(saveButton);
         }
     }
-
+    // this function allows for for the textboxes to change color as the time changes
     function timeChange () {
-        const date = new Date();
+        const date = new Date(); //the date class creates date object representing current date and time
         const hour = parseInt(date.getHours())
         for (var i = 0; i < 9; i++){
             if (hour === timeArray[i].key) {
-                $("#textbox" + timeArray[i].key).attr("class", "col-7 input present")
+                $("#textbox" + timeArray[i].key).attr("class", "col-7 input present") //if statements for present, past and future
             } else if (timeArray[i].key < hour) {
                 $("#textbox" + timeArray[i].key).attr("class", "col-7 input past")
             } else if (timeArray[i].key > hour) {
@@ -90,7 +90,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             }
         }
     }
-
+    //function to have the clear button clear the local storage and remove what was in the text boxes
     function clearButtonOnClick() {
         $(".clearBtn").on("click", function () {
             if (confirm("Are you sure you want to clear all?")) {
@@ -102,7 +102,7 @@ $(document).ready(function() { // this is used to let the HTML load before calli
             }  
         })
     }
-
+    //Call all functions
     containerDisplay();
     saveButton();
     getLocalStorage();
